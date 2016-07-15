@@ -1,0 +1,19 @@
+{
+  "name": "generator-ng2-fullstack",
+  "version": "0.1.0",
+  "description": "Yeoman generator for angular 2 fullstack applications.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "yeoman",
+    "generator"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lucasdesenna/generator-ng2-fullstack"
+  },
+  "author": "Lucas de Senna Correia",
+  "license": "ISC"
+}
