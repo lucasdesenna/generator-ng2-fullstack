@@ -1,0 +1,22 @@
+.forest-view_tree_title((click)='toggleSelf()')
+  i.material-icons(*ngIf='!expanded') expand_more
+  i.material-icons(*ngIf='expanded') expand_less
+  .forest-view_tree_title_label
+    h4.md-title {{tree.label}}
+    small.forest-view_tree_title_caption.md-caption {{fullPath}}
+  button.action(md-icon-button='', (click)='edit($event)')
+    i.material-icons edit
+  button.action(md-icon-button='', (click)='delete($event)')
+    i.material-icons delete
+  button.action.lonely(md-icon-button='', (click)='drag($event)')
+    i.material-icons drag_handle
+.forest-view_tree_content([hidden]='!expanded')
+  ul.forest-view_tree_content_sub-trees(*ngIf='hasSubTrees()')
+    leditor-tree.forest-view_tree_content_sub-tree(
+      *ngFor='let subTree of tree.subTrees',
+      [tree]='subTree',
+      (subTreeActivated$)='subTreeActivated($event)'
+    )
+  ul.forest-view_tree_content_leafs(*ngIf='hasLeafs()')
+    li.forest-view_tree_content_leafs_leaf(*ngFor='let leaf of tree.leafs')
+      leditor-leaf([leaf]='leaf')

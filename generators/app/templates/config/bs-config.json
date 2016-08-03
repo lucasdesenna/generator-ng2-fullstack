@@ -1,0 +1,8 @@
+{
+  "server": {
+    "baseDir": "dev",
+    "routes": {
+      "/vendor": "node_modules"
+    }
+  }
+}

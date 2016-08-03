@@ -1,19 +1,44 @@
 {
-  "name": "generator-ng2-fullstack",
+  "name": "generator-ng2-simple",
   "version": "0.1.0",
   "description": "Yeoman generator for angular 2 fullstack applications.",
   "main": "index.js",
+  "files": [
+    "generators/app",
+    "generators/component"
+  ],
   "scripts": {
-    "test": "test"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "yeoman",
-    "generator"
+    "yeoman-generator",
+    "angular-generator",
+    "next generation",
+    "ng-fullstack",
+    "generator-angular2-simple",
+    "generator-ng2-simple",
+    "generator-iojs-basic",
+    "angular",
+    "angular2",
+    "mongodb",
+    "generator-fullstack",
+    "fullstack",
+    "http2",
+    "node-http2",
+    "ng2",
+    "generator-http2",
+    "generator-ng2"
   ],
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "lodash": "^4.13.1",
+    "yeoman-generator": "^0.20.2",
+    "yosay": "^1.2.0"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lucasdesenna/generator-ng2-fullstack"
+    "url": "https://github.com/lucasdesenna/generator-ng2-simple"
   },
   "author": "Lucas de Senna Correia",
-  "license": "ISC"
+  "license": "MIT"
 }

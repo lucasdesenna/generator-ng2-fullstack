@@ -1,0 +1,40 @@
+:host
+  display: block
+  padding: 0 8px
+  border-bottom: #26A69A solid thin
+  background-color: #FFF
+
+  &:hover
+    background: #F5F5F5
+
+.leaf-view_title
+  display: flex
+  align-items: center
+  height: 48px
+  padding: 0.5em
+  margin: 0
+  cursor: pointer
+  box-sizing: border-box
+
+  &:hover .action
+      visibility: visible
+      pointer-events: inherit
+
+  &_label
+    margin: 0 auto 0 0
+
+    &_name
+      padding: 0 8px
+      font-size: 0.75em
+      color: rgba(0,0,0,0.54)
+
+    &_value
+      padding: 0 8px 0.25em
+      margin: 0
+      font-size: 1em
+      color: rgba(0,0,0,0.87)
+
+.action
+  visibility: hidden
+  pointer-events: none
+  color: #26A69A

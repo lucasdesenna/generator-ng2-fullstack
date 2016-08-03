@@ -1,0 +1,88 @@
+:host
+  display: block
+  padding: 0
+  margin: 0
+  list-style: none
+  color: rgba(0,0,0,0.87)
+  border-radius: 2px
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12)
+
+  &.active
+    & > .forest-view_tree_title > .forest-view_tree_title_label
+      top: -6px
+
+    & > .forest-view_tree_title > .forest-view_tree_title_label .forest-view_tree_title_caption
+      opacity: 1
+
+.forest-view_tree
+  display: block
+  margin: 0
+  list-style: none
+  background: #FFF
+
+  &_title
+    display: flex
+    height: 48px
+    align-items: center
+    border-bottom: #26A69A solid thin
+    padding: 0 0.5em
+    margin: 0
+    cursor: pointer
+
+    &:hover
+      background: #F5F5F5
+
+    &_label
+      position: relative
+      display: block
+      top: 0
+      padding: 0.5em
+      margin: 0 auto 0 0
+      transition: all 0.6s
+
+      .md-title
+        margin: 0
+
+    &_caption
+      position: relative
+      display: block
+      height: 0
+      padding-top: 0.25em
+      font-size: 0.66em
+      color: rgba(0,0,0,0.54)
+      transition: all 0.6s
+      opacity: 0
+
+  &_sub-tree
+    border-radius: 0
+    box-shadow: none
+
+  &_content
+    padding-left: 0.5em
+    background: #26A69A
+
+    &_sub-trees
+      display: block
+      padding: 0
+      margin: 0
+      list-style: none
+
+    &_leafs
+      display: block
+      padding: 0
+      margin: 0
+      list-style: none
+      background-color: #26A69A
+      padding-bottom: 0.5em
+
+.action
+  visibility: hidden
+  pointer-events: none
+  color: #26A69A
+
+  &-lonely
+    margin-left: 2em
+
+*:hover > .action
+    visibility: visible
+    pointer-events: inherit
