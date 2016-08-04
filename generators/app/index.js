@@ -1,44 +1,79 @@
 "use strict";
 
-const yeomanGenerator = require('yeoman-generator');
+const yeomanGeneratorBase = require('yeoman-generator').Base;
 const chalk = require('chalk');
 const yosay = require('yosay');
-// const MainGenerator = require('../_ng/full/generator').MainGenerator;
 
-module.exports = yeomanGenerator.Base.extend({
+module.exports = class Ng2Simple extends yeomanGeneratorBase {
   // The name `constructor` is important here
-  constructor: function () {
-    // Calling the super constructor is important so our generator is correctly set up
-    yeomanGenerator.Base.apply(this, arguments);
+  constructor(args, options, config) {
+      super(args, options, config);
+  }
 
-    // Next, add your custom code
-    // this.option('coffee'); // This method adds support for a `--coffee` flag
-  },
+  prompting()  {
+    return this.prompt([
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Your project name',
+        default: 'My Super App',
+        store: true
+      }
+    ]).then(function(answer) {
+      this.name = answer.name;
 
-  writeConfig: function () {
+      return this.prompt([
+        {
+          type: 'input',
+          name: 'shortName',
+          message: 'Your project abbreviation',
+          default: this._shortenName(answer.name)
+        }
+      ]).then(function(answer) {
+        this.shortName = answer.shortName;
+      }.bind(this));
+    }.bind(this))
+  }
+
+  configuring() {
+    this._writeConfig();
+  }
+
+  writing() {
+    this._writeSrc();
+  }
+
+  _writeConfig() {
     this.fs.copyTpl(
       this.templatePath('config'),
       this.destinationPath(),
       {
-        name: 'Locale Editor',
-        shortName: 'leditor'
+        name: this.name,
+        shortName: this.shortName
       }
     );
     console.log('config written');
-  },
+  }
 
-  writeSrc: function () {
+  _writeSrc() {
     this.fs.copyTpl(
       this.templatePath('src'),
       this.destinationPath('src'),
       {
-        name: 'Locale Editor',
-        shortName: 'leditor'
+        name: this.name,
+        shortName: this.shortName
       }
     );
     console.log('src written');
-  },
-  // method2: function () {
-  //   console.log('method 2 just ran');
-  // }
-});
+  }
+
+  _shortenName(name) {
+    var shortName = name
+      .trim()
+      .toLowerCase()
+      .replace(/[^\s|\w]/g, '')
+      .replace(/\s/g, '-');
+
+    return shortName;
+  }
+}
